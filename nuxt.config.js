@@ -1,5 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+//   ssr: false,
+//   target: 'static',
+
   head: {
     title: 'fortune-pikes-landing',
     htmlAttrs: {
@@ -41,8 +44,14 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
   ],
+  router: {
+        base: '/fish/'
+    },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  generate: {
+    dir: 'docs'
   }
 }
