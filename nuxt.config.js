@@ -46,6 +46,7 @@ export default {
   ],
   router: {
         base: '/fish/'
+        // base: '/'
     },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
