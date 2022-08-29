@@ -4,7 +4,7 @@
             <div class="content">
                 <nav class="menu-container">
                     <div class="main-links">
-                        <a v-for="(item, index) of buttons" :key="index" :href="item.to" class="link" @click.prevent="pushToPage('/')">
+                        <a v-for="(item, index) of buttons" :key="index" :href="item.to" class="link" @click="closeSidebar">
                             <span>
                                 {{ item.name }}
                             </span>
@@ -51,6 +51,7 @@ export default {
                 this.$router.push(url)
                 this.closeSidebar()
             }
+            this.closeSidebar()
         }
     }
 }

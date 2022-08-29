@@ -30,7 +30,7 @@
                     </li>
                 </ul>
 
-                <ui-button>
+                <ui-button href="https://fortunepike.com/">
                     {{ $i18n.get(`TRY THE GAME`) }}
                 </ui-button>
             </div>
