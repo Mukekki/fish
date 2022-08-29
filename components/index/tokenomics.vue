@@ -1,5 +1,7 @@
 <template>
-    <div class="tokenomics" id="river">
+    <div class="tokenomics">
+        <div class="point" id="tokenomics"></div>
+
         <h2>
             {{ $i18n.get(`Tokenomics`) }}
         </h2>
@@ -22,7 +24,7 @@
             </div>
         </div>
 
-        <div class="buttons">
+        <!-- <div class="buttons">
             <ui-button>
                 {{ $i18n.get(`Learn more`) }}
             </ui-button>
@@ -30,7 +32,7 @@
             <ui-button type="blue">
                 {{ $i18n.get(`Distribution`) }}
             </ui-button>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -55,6 +57,12 @@ export default {
 <style lang="less">
     .tokenomics {
         margin-top: 12em;
+        position: relative;
+
+        > .point {
+            position: absolute;
+            top: -9.2rem;
+        }
 
         > h2 {
             font-weight: 700;

@@ -1,5 +1,7 @@
 <template>
-    <div class="about" id="about">
+    <div class="about">
+        <div class="point" id="about"></div>
+
         <div class="fish-three"></div>
 
         <h1>{{ $i18n.get(`About The Game`) }}</h1>
@@ -55,6 +57,11 @@ export default {
         margin-top: -30em;
         height: 100em;
         position: relative;
+
+        > .point {
+            position: absolute;
+            top: -8.2rem;
+        }
 
         > .fish-three {
             background-image: url(~/assets/images/index/fish-three.png);

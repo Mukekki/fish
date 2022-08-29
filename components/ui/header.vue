@@ -50,11 +50,19 @@ export default {
                 },
                 {
                     name: this.$i18n.get(`For River lords`),
-                    to: '#river'
+                    to: '#fisher'
+                },
+                {
+                    name: this.$i18n.get(`Tokenomics`),
+                    to: '#tokenomics'
                 },
                 {
                     name: this.$i18n.get(`Roadmap`),
                     to: '#roadmap'
+                },
+                {
+                    name: this.$i18n.get(`Events`),
+                    to: '#events'
                 },
                 {
                     name: this.$i18n.get(`Whitepaper`),
@@ -127,6 +135,13 @@ export default {
                 &:hover {
                     color: var(--white);
                     cursor: pointer;
+                }
+
+                &:last-child {
+                    opacity: 0.5;
+                    > a {
+                        cursor: not-allowed;
+                    }
                 }
             }
         }

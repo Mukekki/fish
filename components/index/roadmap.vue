@@ -5,39 +5,42 @@
         </h1>
 
         <div class="tabs">
-            <div class="item" v-for="item of tabs" :key="item" :class="{ '-active': item === 'Aug' }">
+            <div class="item" v-for="(item, index) of tabs" :key="index" :class="{ '-active': item === selected }"
+            @click="selected = item">
                 {{ item }}
             </div>
         </div>
 
-        <div class="cards">
-            <div class="item" v-for="(item) of cards" :key="item">
-                <div class="bg"></div>
-                <div class="shadow"></div>
-                <div class="container">
-                    <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.296875" y="8.40002" width="4.2" height="4.2" fill="#029621"/>
-                        <rect x="4.5" y="12.6001" width="4.2" height="4.2" fill="#029621"/>
-                        <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 21.2969 8.40002)" fill="#029621"/>
-                        <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 25.5 4.19995)" fill="#029621"/>
-                        <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 29.6953 0)" fill="#029621"/>
-                        <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 17.0938 12.6001)" fill="#029621"/>
-                        <rect x="8.69531" y="16.8" width="4.2" height="4.2" fill="#029621"/>
-                    </svg>
+            <div class="cards">
+                <div class="item" v-for="(item) of cards[selected]" :key="item">
+                    <div class="bg"></div>
+                    <div class="shadow"></div>
+                    <div class="container">
+                        <svg width="30" height="21" viewBox="0 0 30 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.296875" y="8.40002" width="4.2" height="4.2" fill="#029621"/>
+                            <rect x="4.5" y="12.6001" width="4.2" height="4.2" fill="#029621"/>
+                            <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 21.2969 8.40002)" fill="#029621"/>
+                            <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 25.5 4.19995)" fill="#029621"/>
+                            <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 29.6953 0)" fill="#029621"/>
+                            <rect width="4.2" height="4.2" transform="matrix(-1 0 0 1 17.0938 12.6001)" fill="#029621"/>
+                            <rect x="8.69531" y="16.8" width="4.2" height="4.2" fill="#029621"/>
+                        </svg>
 
-                    <div class="text">
-                        {{ item }}
+                        <div class="text">
+                            {{ item }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
         <h1 style="margin-top: 8rem;">
             {{ $i18n.get(`News and events`) }}
+
+            <div class="point" id="events"></div>
         </h1>
 
         <div class="cards -big">
-            <div class="item -big" v-for="(item) of this['big-cards']" :key="item">
+            <div class="item -big" v-for="(item, index) of this['big-cards']" :key="index">
                 <div class="bg"></div>
                 <div class="shadow"></div>
                 <div class="container">
@@ -52,12 +55,10 @@
                             {{ item.text }}
                         </div>
 
-                        <ui-button type="blue">
+                        <ui-button type="blue" :href="item.href ? item.href : ''">
                             {{ item.button }}
                         </ui-button>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -70,34 +71,73 @@ export default {
     data() {
         return {
             tabs: [
-                this.$i18n.get(`Jun`),
-                this.$i18n.get(`Jul`),
-                this.$i18n.get(`Aug`),
-                this.$i18n.get(`Sep`),
-                this.$i18n.get(`Oct`),
-                this.$i18n.get(`Nov`),
-                this.$i18n.get(`Dec`),
-                this.$i18n.get(`2023`)
+                `Jun`,
+                `Jul`,
+                `Aug`,
+                `Sep`,
+                `Oct`,
+                `Nov`,
+                `Dec`,
+                `2023`
             ],
-            cards: [
-                this.$i18n.get(`Fortune Pike World (FP World) - map with the first 80 rivers`),
-                this.$i18n.get(`Players experience levels balanced`),
-                this.$i18n.get(`BaitCoins faucet`),
-                this.$i18n.get(`Referral program for players`),
-            ],
+            selected: 'Sep',
+            cards: {
+                Jun: [
+                    this.$i18n.get(`Game concept ready`),
+                    this.$i18n.get(`Binance blockchain implemented for transaction`),
+                ],
+                Jul: [
+                    this.$i18n.get(`MVP launch`),
+                    this.$i18n.get(`Web site launch`)
+                ],
+                Aug: [
+                    this.$i18n.get(`Fortune Pike World (FP World) - map with the first 80 rivers`),
+                    this.$i18n.get(`Players experience levels balanced`),
+                    this.$i18n.get(`BaitCoins faucet`),
+                    this.$i18n.get(`Referral program for players`),
+                ],
+                Sep: [
+                    this.$i18n.get(`Dynamic NFT of Fisher avatars implemented`),
+                    this.$i18n.get(`Shop with BaitCoins (soft currency) packs and first equipment to buy`),
+                    this.$i18n.get(`Migrate all previous players profiles to blockchain NFT avatars`),
+                    this.$i18n.get(`Marketplace for selling and buying NFTs among players`),
+                ],
+                Oct: [
+                    this.$i18n.get(`NFT Collections`),
+                    this.$i18n.get(`Special NFT Fishermen avatars (10K items) auction (on Opensea or Binance)`),
+                    this.$i18n.get(`Start of massive marketing campaign`),
+                    this.$i18n.get(`First monthly based tournament with 100K$ prize pool`),
+                ],
+                Nov: [
+                    this.$i18n.get(`River Lords infrastructure launch`),
+                    this.$i18n.get(`Auction of the first 100 of 777 River Lords titles (on Opensea)`),
+                ],
+                Dec: [
+                    this.$i18n.get(`Regular weekly and monthly based tournaments on each River`),
+                    this.$i18n.get(`Auction of the 677 NFT River Lords titles (on Opensea)`),
+                    this.$i18n.get(`31 December - yearly tournament with a prize pool 1M$`),
+                ],
+                '2023': [
+                    this.$i18n.get(`Sponsorships with brands to provide special prizes for the tournaments winners`),
+                    this.$i18n.get(`Offline activities for River Lords and most experienced Fishermen`),
+                    this.$i18n.get(`Merch Shop`),
+                    this.$i18n.get(`Cross promo with blockchain startups`),
+                ]
+            },
             'big-cards': [
                 {
                     date: '01.08.2022',
                     text: 'Game beta 0,7 version has been launched',
-                    button: 'Try to play'
+                    button: 'Try to play',
+                    href: 'https://fortunepike.com/'
                 },
                 {
-                    date: '01.08.2022',
+                    date: '01.10.2022',
                     text: 'Striking mystery-box auction with unique NFT avatars will take place!',
                     button: 'Get whitelisted!'
                 },
                 {
-                    date: '01.08.2022',
+                    date: '01.11.2022',
                     text: 'Will take place the first auction of River lords\' titles',
                     button: 'Get whitelisted!'
                 }
@@ -114,11 +154,19 @@ export default {
         position: relative;
         padding: 10em 0 24em 0;
 
+
+
         > h1 {
             font-weight: 700;
             font-size: 5.2em;
             line-height: 7rem;
             text-align: center;
+            position: relative;
+
+            > .point {
+                position: absolute;
+                top: -9.2rem;
+            }
         }
 
         &::before {
@@ -158,18 +206,24 @@ export default {
                 text-align: center;
                 opacity: 0.5;
                 padding-bottom: 1.5em;
+                transition: opacity 1s;
 
                 &.-active {
                     opacity: 1;
                     border-bottom: 0.15em solid #121212;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.8;
                 }
             }
 
             &::before {
                 content: '';
                 position: absolute;
-                left: 0;
-                right: 0;
+                left: -2em;
+                right: -48em;
                 bottom: 0;
                 height: 0.2em;
                 opacity: 0.5;
@@ -183,14 +237,20 @@ export default {
             display: flex;
             flex-wrap: wrap;
             gap: 2.4em;
-
+            min-height: 28.8em;
 
             &.-big {
                 width: var(--container-width);
                 flex-wrap: nowrap;
             }
 
-            > .item {
+            > span {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2.4em;
+            }
+
+            .item {
                 position: relative;
                 flex-shrink: 0;
                 width: 42.7em;
@@ -314,18 +374,15 @@ export default {
         .roadmap {
             > .tabs {
                 margin: 4em auto 0;
-                width: 132.8em;
+                width: auto;
                 display: flex;
                 gap: 2em;
                 position: relative;
+                overflow-x: scroll;
 
                 > .item {
-                    width: 7.8rem;
-                    display: none;
-
-                    &:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(4) {
-                        display: block;
-                    }
+                    width: 8.8rem;
+                    flex-shrink: 0;
                 }
             }
 
@@ -335,6 +392,7 @@ export default {
                 margin: 5.8em auto 0;
                 display: flex;
                 flex-wrap: wrap;
+                align-items: center;
                 gap: 2.4em;
 
 
@@ -351,17 +409,18 @@ export default {
                     position: relative;
                     flex-shrink: 0;
                     width: 100%;
-                    height: 13.6em;
+                    height: auto;
+                    padding: 0.4em;
 
                     > .shadow {
                         width: 100%;
-                        height: 13.6em;
+                        height: auto;
                     }
 
                     > .container {
                         padding: 2.4em;
-                        width: calc(100% - 0.4rem);
-                        height: 13.2em;
+                        width: 100%;
+                        height: auto;
                     }
 
                     &.-big {

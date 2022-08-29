@@ -1,217 +1,438 @@
 <template>
-    <div class="fisherman" id="fisher">
+    <div class="fisherman">
+        <div class="point" id="fisher"></div>
+
         <ui-icons-light class="light"/>
 
-        <div class="container">
-            <div class="text">
-                <h1>
-                    {{ $i18n.get(`Fisherman `) }}
-                </h1>
+        <template v-if="type === 'Fisherman'">
+            <div class="container">
+                <div class="text">
+                    <h1>
+                        <a style="opacity: 0.5;">{{ $i18n.get(`Fisherman`) }}</a>
+                         or
+                        <a @click="setType('River Lord')">{{ $i18n.get(`River Lord`) }}</a>
+                    </h1>
 
-                <h3>
-                    {{ $i18n.get(`Are You a regular player interested in collecting rare Fish (Coins) and selling them on the market for a booming price`) }}
-                </h3>
+                    <h3>
+                        {{ $i18n.get(`Are You a regular player interested in collecting rare Fish (Coins) and selling them on the market for a booming price?`) }}
+                    </h3>
 
-                <ui-button>
-                    {{ $i18n.get(`TRY THE GAME`) }}
-                </ui-button>
+                    <ui-button href="https://fortunepike.com/">
+                        {{ $i18n.get(`TRY THE GAME`) }}
+                    </ui-button>
+                </div>
+
+                <div class="fisherman-image">
+                    <template>
+                        <a v-if="fisher === 'left'" class="left">
+                            <svg class="left"  width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 0)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 36)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 3 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                            </svg>
+                        </a>
+                        <a v-else @click="fisher = 'left'" class="left">
+                            <svg style="transform: scaleX(-1);" width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="36" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="21" y="18" width="3" height="3" fill="#EFAA14"/>
+                            </svg>
+                        </a>
+
+                    </template>
+
+                    <img :src="require(`~/assets/images/index/fisherman.png`)" alt="fisherman">
+
+                    <template>
+                        <a v-if="fisher === 'right'" class="right">
+                            <svg style="transform: scaleX(-1);" class="right" width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 0)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 36)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 3 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                            </svg>
+                        </a>
+                        <a v-else @click="fisher = 'right'" class="right">
+                            <svg width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="36" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="21" y="18" width="3" height="3" fill="#EFAA14"/>
+                            </svg>
+                        </a>
+                    </template>
+                </div>
             </div>
+        </template>
 
-            <div class="fisherman-image">
-                <template>
-                    <a v-if="fisher === 'left'" class="left">
-                        <svg class="left"  width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 3)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 6)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 9)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 12)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 15)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 18)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 21)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 24)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 27)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 30)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 33)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 21 0)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 21 36)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 18 3)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 18 33)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 15 6)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 15 30)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 12 9)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 12 27)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 9 12)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 9 24)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 6 15)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 6 21)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 3 18)" fill="#EFAA14" fill-opacity="0.5"/>
-                        </svg>
-                    </a>
-                    <a v-else @click="fisher = 'left'" class="left">
-                        <svg style="transform: scaleX(-1);" width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect y="3" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="6" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="9" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="12" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="15" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="18" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="21" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="24" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="27" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="30" width="3" height="3" fill="#EFAA14"/>
-                            <rect y="33" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="3" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="6" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="9" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="12" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="15" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="18" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="21" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="24" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="27" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="33" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="36" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="3" y="30" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="3" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="6" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="9" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="12" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="15" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="18" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="21" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="24" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="27" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="33" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="6" y="30" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="6" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="9" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="12" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="15" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="18" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="21" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="24" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="27" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="9" y="30" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="12" y="9" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="12" y="12" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="12" y="15" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="12" y="18" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="12" y="21" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="12" y="24" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="12" y="27" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="15" y="12" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="15" y="15" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="15" y="18" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="15" y="21" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="15" y="24" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="18" y="15" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="18" y="18" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="18" y="21" width="3" height="3" fill="#EFAA14"/>
-                            <rect x="21" y="18" width="3" height="3" fill="#EFAA14"/>
-                        </svg>
-                    </a>
+        <template v-if="type === 'River Lord'">
+            <div class="container">
+                <div class="text">
+                    <h1>
+                        <a @click="setType('Fisherman')">{{ $i18n.get(`Fisherman`) }}</a>
+                         or
+                        <a style="opacity: 0.5;">{{ $i18n.get(`River Lord`) }}</a>
+                    </h1>
 
-                </template>
+                    <h3>
+                        {{ $i18n.get(`Or you are eager to invest in River asset, develop it and get revenue share?`) }}
+                    </h3>
 
-                <img :src="require(`~/assets/images/index/fisherman.png`)" alt="fisherman">
+                    <ui-button href="https://fortunepike.com/">
+                        {{ $i18n.get(`TRY THE GAME`) }}
+                    </ui-button>
+                </div>
 
-                <template>
-                    <a v-if="fisher === 'right'" class="right">
-                        <svg style="transform: scaleX(-1);" class="right" width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 3)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 6)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 9)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 12)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 15)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 18)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 21)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 24)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 27)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 30)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 24 33)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 21 0)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 21 36)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 18 3)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 18 33)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 15 6)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 15 30)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 12 9)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 12 27)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 9 12)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 9 24)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 6 15)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 6 21)" fill="#EFAA14" fill-opacity="0.5"/>
-                            <rect width="3" height="3" transform="matrix(-1 0 0 1 3 18)" fill="#EFAA14" fill-opacity="0.5"/>
-                        </svg>
-                    </a>
-                    <a v-else @click="fisher = 'right'" class="right">
-                        <svg width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="3" width="3" height="3" fill="#EFAA14"/>
-<rect y="6" width="3" height="3" fill="#EFAA14"/>
-<rect y="9" width="3" height="3" fill="#EFAA14"/>
-<rect y="12" width="3" height="3" fill="#EFAA14"/>
-<rect y="15" width="3" height="3" fill="#EFAA14"/>
-<rect y="18" width="3" height="3" fill="#EFAA14"/>
-<rect y="21" width="3" height="3" fill="#EFAA14"/>
-<rect y="24" width="3" height="3" fill="#EFAA14"/>
-<rect y="27" width="3" height="3" fill="#EFAA14"/>
-<rect y="30" width="3" height="3" fill="#EFAA14"/>
-<rect y="33" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="3" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="6" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="9" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="12" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="15" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="18" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="21" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="24" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="27" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="33" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="36" width="3" height="3" fill="#EFAA14"/>
-<rect x="3" y="30" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="3" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="6" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="9" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="12" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="15" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="18" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="21" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="24" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="27" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="33" width="3" height="3" fill="#EFAA14"/>
-<rect x="6" y="30" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="6" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="9" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="12" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="15" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="18" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="21" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="24" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="27" width="3" height="3" fill="#EFAA14"/>
-<rect x="9" y="30" width="3" height="3" fill="#EFAA14"/>
-<rect x="12" y="9" width="3" height="3" fill="#EFAA14"/>
-<rect x="12" y="12" width="3" height="3" fill="#EFAA14"/>
-<rect x="12" y="15" width="3" height="3" fill="#EFAA14"/>
-<rect x="12" y="18" width="3" height="3" fill="#EFAA14"/>
-<rect x="12" y="21" width="3" height="3" fill="#EFAA14"/>
-<rect x="12" y="24" width="3" height="3" fill="#EFAA14"/>
-<rect x="12" y="27" width="3" height="3" fill="#EFAA14"/>
-<rect x="15" y="12" width="3" height="3" fill="#EFAA14"/>
-<rect x="15" y="15" width="3" height="3" fill="#EFAA14"/>
-<rect x="15" y="18" width="3" height="3" fill="#EFAA14"/>
-<rect x="15" y="21" width="3" height="3" fill="#EFAA14"/>
-<rect x="15" y="24" width="3" height="3" fill="#EFAA14"/>
-<rect x="18" y="15" width="3" height="3" fill="#EFAA14"/>
-<rect x="18" y="18" width="3" height="3" fill="#EFAA14"/>
-<rect x="18" y="21" width="3" height="3" fill="#EFAA14"/>
-<rect x="21" y="18" width="3" height="3" fill="#EFAA14"/>
-                        </svg>
-                    </a>
-                </template>
+                <div class="fisherman-image">
+                    <template>
+                        <a v-if="fisher === 'left'" class="left">
+                            <svg class="left"  width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 0)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 36)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 3 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                            </svg>
+                        </a>
+                        <a v-else @click="fisher = 'left'" class="left">
+                            <svg style="transform: scaleX(-1);" width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="36" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="21" y="18" width="3" height="3" fill="#EFAA14"/>
+                            </svg>
+                        </a>
+
+                    </template>
+
+                    <img :src="require(`~/assets/images/index/fisherman.png`)" alt="fisherman">
+
+                    <template>
+                        <a v-if="fisher === 'right'" class="right">
+                            <svg style="transform: scaleX(-1);" class="right" width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 24 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 0)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 21 36)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 3)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 18 33)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 6)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 15 30)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 9)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 12 27)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 12)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 9 24)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 15)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 6 21)" fill="#EFAA14" fill-opacity="0.5"/>
+                                <rect width="3" height="3" transform="matrix(-1 0 0 1 3 18)" fill="#EFAA14" fill-opacity="0.5"/>
+                            </svg>
+                        </a>
+                        <a v-else @click="fisher = 'right'" class="right">
+                            <svg width="24" height="39" viewBox="0 0 24 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="36" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="3" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="3" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="33" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="6" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="6" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="9" y="30" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="9" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="12" y="27" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="12" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="15" y="24" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="15" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="18" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="18" y="21" width="3" height="3" fill="#EFAA14"/>
+                                <rect x="21" y="18" width="3" height="3" fill="#EFAA14"/>
+                            </svg>
+                        </a>
+                    </template>
+                </div>
             </div>
-        </div>
+        </template>
 
         <div class="banner">
             <div class="container">
@@ -224,8 +445,12 @@
                         {{ $i18n.get(`Striking mystery-box auction `) }}
                     </h2>
 
-                    <h3>
+                    <h3 v-if="type === 'Fisherman'">
                         {{ $i18n.get(`In October 2022, a striking mystery-box auction with unique NFT avatars will take place! These avatars will give a bunch of benefits to their holders during the main gameplay.`) }}
+                    </h3>
+
+                    <h3 v-if="type === 'River Lord'">
+                        {{ $i18n.get(`In November 2022 will take place the first auction of River lords' titles. This type of NFT asset will be limited only to 777 Rivers`) }}
                     </h3>
                 </div>
 
@@ -244,9 +469,19 @@
 <script>
 export default {
     name: 'fisherman',
+    props: {
+        type: {
+            default: String
+        }
+    },
     data() {
         return {
             fisher: 'left'
+        }
+    },
+    methods: {
+        setType(string) {
+            this.$emit('change-tab', string)
         }
     }
 }
@@ -256,6 +491,11 @@ export default {
     .fisherman {
         margin-top: -31em;
         position: relative;
+
+        > .point {
+            position: absolute;
+            top: -9.2rem;
+        }
 
         > .light {
             position: absolute;
@@ -281,6 +521,10 @@ export default {
                     font-weight: 700;
                     font-size: 4.4em;
                     line-height: 6rem;
+
+                    > a {
+                        cursor: pointer;
+                    }
                 }
 
                 > h3 {
@@ -304,6 +548,7 @@ export default {
                     position: absolute;
                     bottom: 2em;
                     left: 1.5em;
+                    display: none;
 
                     > svg {
                         height: 4em;
@@ -314,6 +559,7 @@ export default {
                     position: absolute;
                     bottom: 2em;
                     right: -5em;
+                    display: none;
 
                     > svg {
                         height: 4em;
@@ -468,7 +714,7 @@ export default {
 
                 > .fisherman-image {
                     position: absolute;
-                    top: 9.2em;
+                    top: 14.2em;
                     left: 5.5em
                 }
             }
