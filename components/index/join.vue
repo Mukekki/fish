@@ -54,6 +54,7 @@
             position: relative;
             z-index: 20;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 3.2em;
             margin-top: 4em;
@@ -78,10 +79,50 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+
+                    > svg {
+                        width: 5.6em;
+                        height: 5.6em;
+                    }
                 }
 
                 &:hover {
                     transform: translateY(-3px);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        .join {
+            > .links {
+                position: relative;
+                z-index: 20;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.6em;
+                margin-top: 4em;
+
+                > .link {
+                    position: relative;
+                    width: 7.4em;
+                    height: 7.4em;
+
+                    > .container {
+                        background: #0C2A47;
+                        width: 7em;
+                        height: 7em;
+
+                        > svg {
+                            width: 4em;
+                            height: 4em;
+                        }
+                    }
+
+                    &:hover {
+                        transform: translateY(-3px);
+                    }
                 }
             }
         }

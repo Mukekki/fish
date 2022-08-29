@@ -17,10 +17,8 @@
 
     .f-bubble-bg {
         z-index: 0 !important;
-        height: 100%;
-        width: 100%;
         position: absolute;
-        top: 50em;
+        top: 40em;
         bottom: 0;
         right: 0;
         left: 0;

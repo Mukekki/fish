@@ -174,7 +174,7 @@ export default {
 
     @media (max-width: 767px) {
         .about {
-            margin-top: -20em;
+            margin-top: -10em;
             height: 100em;
 
             > .fish-three {

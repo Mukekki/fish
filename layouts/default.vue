@@ -2,6 +2,7 @@
     <div class="default-layout">
         <ui-header></ui-header>
         <nuxt />
+        <ui-footer></ui-footer>
     </div>
 </template>
 

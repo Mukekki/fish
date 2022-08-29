@@ -4,7 +4,7 @@ export default {
 //   target: 'static',
 
   head: {
-    title: 'fortune-pikes-landing',
+    title: 'Fortune Pike',
     htmlAttrs: {
       lang: 'en'
     },
