@@ -16,7 +16,7 @@
             </li>
         </ul>
 
-        <a class="btn">
+        <a class="btn" href="https://fortunepike.com/">
             {{ $i18n.get(`GO FISHING`) }}
         </a>
 
